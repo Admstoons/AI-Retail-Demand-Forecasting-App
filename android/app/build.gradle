@@ -1,0 +1,43 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin" // Flutter must come last
+}
+
+android {
+    namespace = "com.retaildemand.app"
+
+    compileSdk = 35 // ✅ Updated from 34 to 35
+    ndkVersion = "25.2.9519653" // Optional
+
+    defaultConfig {
+        applicationId = "com.retaildemand.app"
+        minSdk = 23
+        targetSdk = 35 // ✅ Already correct
+        versionCode = 1
+        versionName = "1.0.0"
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    buildTypes {
+        release {
+            // Signing config intentionally removed as requested
+            // For production:
+            // minifyEnabled true
+            // shrinkResources true
+            // proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+flutter {
+    source = "../.."
+}
